@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Step1: Upload the dataset</h2>
+<form action="/upload" method= "POST" enctype= "multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+<div class="table">
+    {% block body %}
+    <h1>{{title}}</h1>
+    {{ data|safe }}
+    {% endblock %}  
+</div>
+<br>
+  {{ shape }}
+
+<h2> Step2: Fill in the Missing Values</h2>
+<form action="/fillmissing" method= "POST" enctype= "multipart/form-data">
+    <input type="submit" value="Fill Missing Values">
+</form>
+<div class="table1">
+    {{ data1|safe }}
+
+</div>
+<br>
+
+<h2> Step3: Converting Float to Integer Values</h2>
+<form action="/convertfloat" method= "POST" enctype= "multipart/form-data">
+    <input type="submit" value="Convert to Integer">
+</form>
+<div class="table">
+    {{ data2|safe }}
+
+</div>
+<br>
+
+<!-- <h2> Step4: Normalisation</h2>
+<form action="/normalise" method= "POST" enctype= "multipart/form-data">
+    <input type="submit" value="Normalise the Dataset">
+</form>
+<div class="table">
+    {{ data3|safe }}
+
+</div>
+<br> -->
+
+
+
+</body>
+</html>
